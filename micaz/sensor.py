@@ -3,7 +3,6 @@ from time import time, strftime
 from pygame import Surface
 from pygame.image import load
 
-
 class Sensor(Surface):
     def __init__(self, msg):
         count, parts = msg.count, msg.readings

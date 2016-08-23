@@ -1,12 +1,12 @@
 <tos_image>
   <ident>
-    <platform>micaz</platform>
-    <hostname>belial</hostname>
-    <appname>NodeAppC</appname>
-    <uidhash>BCDB1D9BL</uidhash>
-    <timestamp>57A704E4L</timestamp>
     <userhash>7A8D51F4L</userhash>
+    <appname>NodeAppC</appname>
+    <timestamp>57B6DEBCL</timestamp>
+    <hostname>belial</hostname>
     <username>kanavoy</username>
+    <uidhash>0E4509F8L</uidhash>
+    <platform>micaz</platform>
     <deluge_support>no</deluge_support>
   </ident>
   <image format="ihex">

@@ -2,6 +2,7 @@ import pygame
 import tos
 from sys import exit
 from packethandler import PacketHandler
+from plot import getMapData
 from time import time
 
 def loadMapImage():
@@ -13,6 +14,7 @@ pygame.init()
 pygame.display.set_caption("MICAz Visualiser")
 clock = pygame.time.Clock()
 sensors = {}
+snapshot = sensors.copy()
 events = []
 arial = pygame.font.SysFont("arial", 12)
 source = tos.getSource("serial@/dev/ttyUSB1:57600")
@@ -35,15 +37,18 @@ def drawMap():
     screen.fill((255, 255, 255), mapRect)
     screen.blit(mapImage, mapRect)
     drawCircle = pygame.draw.circle
-    for key, sensor in sensors.iteritems():
+    for key, sensor in snapshot.iteritems():
         pos = sensor.position
         if sensor.idle or sensor.anomaly:
             drawCircle(screen, (255, 0, 0), pos, 8)
         drawCircle(screen, sensor.colour, pos, 5)
+    rawData = getMapData(sensors, mapRect[2:])
+    mapData = pygame.image.fromstring(rawData, mapRect[2:], "RGB")
+    screen.blit(mapData, mapRect)
 
 def drawGraph(selected):
     screen.fill((255, 255, 255), graphRect)
-    for key, sensor in sensors.iteritems():
+    for key, sensor in snapshot.iteritems():
         if (selected is None or key == selected):
             col = sensor.colour
         else:
@@ -63,6 +68,7 @@ chosen = None
 while True:
     clock.tick(60)
     redrawGraph = (step == 0)
+    snapshot = sensors.copy()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             handler.beRunning = False
@@ -75,8 +81,11 @@ while True:
                 except KeyError:
                     pass
             elif event.button == 1:  # LMB
-                if chosen and event.pos[0] > 600:
-                    sensors[chosen].position = event.pos
+                if chosen
+                    if event.pos[0] > 600:
+                        sensors[chosen].position = event.pos
+                    else:
+                        sensors[chosen].position = (-100, -100)
                 chosen = selected
     if step != 0:
         screen.fill((255, 255, 255), sidebarRect)
@@ -94,7 +103,7 @@ while True:
     drawCircle = pygame.draw.circle
 
     newSelection = None
-    for key, sensor in sensors.iteritems():
+    for key, sensor in snapshot.iteritems():
         col = sensor.colour
         if (currentTime - sensor.timestamp > 3) and not sensor.idle:
             sensor.idle = True
