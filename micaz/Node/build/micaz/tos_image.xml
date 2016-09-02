@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <userhash>7A8D51F4L</userhash>
-    <appname>NodeAppC</appname>
-    <timestamp>57B6DEBCL</timestamp>
+    <timestamp>57C97FD3L</timestamp>
     <hostname>belial</hostname>
-    <username>kanavoy</username>
-    <uidhash>0E4509F8L</uidhash>
+    <userhash>7A8D51F4L</userhash>
     <platform>micaz</platform>
     <deluge_support>no</deluge_support>
+    <uidhash>DCF12484L</uidhash>
+    <username>kanavoy</username>
+    <appname>NodeAppC</appname>
   </ident>
   <image format="ihex">
 :100000000C9464000C94A3060C94AD060C94B706F3

@@ -81,7 +81,7 @@ while True:
                 except KeyError:
                     pass
             elif event.button == 1:  # LMB
-                if chosen
+                if chosen:
                     if event.pos[0] > 600:
                         sensors[chosen].position = event.pos
                     else:

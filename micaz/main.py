@@ -44,6 +44,7 @@ def drawMap():
         drawCircle(screen, sensor.colour, pos, 5)
     rawData = getMapData(sensors, mapRect[2:])
     mapData = pygame.image.fromstring(rawData, mapRect[2:], "RGB")
+    mapData.set_alpha(100)    
     screen.blit(mapData, mapRect)
 
 def drawGraph(selected):

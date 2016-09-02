@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <hostname>belial</hostname>
-    <uidhash>455F8C6EL</uidhash>
-    <timestamp>57862CF2L</timestamp>
-    <userhash>7A8D51F4L</userhash>
     <appname>BaseStationC</appname>
-    <username>kanavoy</username>
-    <deluge_support>no</deluge_support>
+    <hostname>belial</hostname>
+    <uidhash>892BB665L</uidhash>
+    <userhash>7A8D51F4L</userhash>
     <platform>micaz</platform>
+    <username>kanavoy</username>
+    <timestamp>57C980A3L</timestamp>
+    <deluge_support>no</deluge_support>
   </ident>
   <image format="ihex">
 :100000000C945E010C94CF060C94D9060C94E30674
