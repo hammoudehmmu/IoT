@@ -14,14 +14,12 @@ class PacketHandler(Thread):
     def run(self):
         types = {
             1 : "Light",
-            2 : "Heat",
+            2 : "Heat",        
         }
         while self.beRunning:
             packet = self.am.read(1)
             if packet and packet.type == 0x8A:
                 msg = SensorMsg(packet.data)
-                if not msg.type in types:
-                    continue
                 sensor = str(msg.id)+" - "+types[msg.type]
                 try:
                     self.sensors[sensor].append(msg)

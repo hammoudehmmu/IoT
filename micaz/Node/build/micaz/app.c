@@ -252,12 +252,12 @@ typedef struct { unsigned char nxdata[2]; } __attribute__((packed)) nxle_uint16_
 typedef struct { unsigned char nxdata[4]; } __attribute__((packed)) nxle_uint32_t;typedef uint32_t __nesc_nxbase_nxle_uint32_t  ;
 typedef struct { unsigned char nxdata[8]; } __attribute__((packed)) nxle_uint64_t;typedef uint64_t __nesc_nxbase_nxle_uint64_t  ;
 # 116 "/usr/lib/gcc/avr/4.1.2/../../../../avr/include/string.h" 3
-extern int memcmp(const void *arg_0x7f41e6a522f8, const void *arg_0x7f41e6a525d0, size_t arg_0x7f41e6a52878) __attribute((__pure__)) ;
-extern void *memcpy(void *arg_0x7f41e6a501f0, const void *arg_0x7f41e6a504c8, size_t arg_0x7f41e6a50770);
+extern int memcmp(const void *arg_0x7f2d498662f8, const void *arg_0x7f2d498665d0, size_t arg_0x7f2d49866878) __attribute((__pure__)) ;
+extern void *memcpy(void *arg_0x7f2d498641f0, const void *arg_0x7f2d498644c8, size_t arg_0x7f2d49864770);
 
 
 
-extern void *memset(void *arg_0x7f41e6a4b020, int arg_0x7f41e6a4b288, size_t arg_0x7f41e6a4b530);
+extern void *memset(void *arg_0x7f2d4985f020, int arg_0x7f2d4985f288, size_t arg_0x7f2d4985f530);
 # 71 "/usr/lib/gcc/avr/4.1.2/../../../../avr/include/stdlib.h" 3
 #line 68
 typedef struct __nesc_unnamed4242 {
@@ -276,7 +276,7 @@ typedef struct __nesc_unnamed4243 {
 } ldiv_t;
 
 
-typedef int (*__compar_fn_t)(const void *arg_0x7f41e6a2a838, const void *arg_0x7f41e6a2ab10);
+typedef int (*__compar_fn_t)(const void *arg_0x7f2d4983e838, const void *arg_0x7f2d4983eb10);
 # 25 "/home/kanavoy/tinyos-main/tos/system/tos.h"
 typedef uint8_t bool;
 enum __nesc_unnamed4244 {
@@ -906,7 +906,8 @@ enum __nesc_unnamed4299 {
   AM_NODEREAD = 0x8A, 
   QUEUESIZE = 10, 
   PHOTO = 1, 
-  TEMP = 2
+  TEMP = 2, 
+  CONTROL = 127
 };
 
 
@@ -917,7 +918,7 @@ enum __nesc_unnamed4299 {
 
 
 
-#line 13
+#line 14
 typedef nx_struct readings {
   nx_uint16_t version;
   nx_uint8_t filler;
@@ -1808,11 +1809,11 @@ static uint8_t MeasureClockC__Atm128Calibrate__adcPrescaler(void );
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t SchedulerBasicP__TaskBasic__postTask(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x7f41e6905960);
+uint8_t arg_0x7f2d49719960);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__default__runTask(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x7f41e6905960);
+uint8_t arg_0x7f2d49719960);
 # 57 "/home/kanavoy/tinyos-main/tos/interfaces/Scheduler.nc"
 static void SchedulerBasicP__Scheduler__init(void );
 #line 72
@@ -2113,31 +2114,31 @@ error_t error);
 # 62 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 static error_t CC2420SpiP__Fifo__continueRead(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 62 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length);
 #line 91
 static void CC2420SpiP__Fifo__default__writeDone(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 91 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length, error_t error);
 #line 82
 static cc2420_status_t CC2420SpiP__Fifo__write(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 82 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length);
 #line 51
 static cc2420_status_t CC2420SpiP__Fifo__beginRead(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 51 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length);
 #line 71
 static void CC2420SpiP__Fifo__default__readDone(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 71 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length, error_t error);
 # 31 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/ChipSpiResource.nc"
@@ -2155,13 +2156,13 @@ static void CC2420SpiP__SpiResource__granted(void );
 # 63 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Ram.nc"
 static cc2420_status_t CC2420SpiP__Ram__write(
 # 47 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint16_t arg_0x7f41e615e230, 
+uint16_t arg_0x7f2d48f6f230, 
 # 63 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Ram.nc"
 uint8_t offset, uint8_t * data, uint8_t length);
 # 55 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Register.nc"
 static cc2420_status_t CC2420SpiP__Reg__read(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615d020, 
+uint8_t arg_0x7f2d48f6e020, 
 # 55 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Register.nc"
 uint16_t *data);
 
@@ -2173,55 +2174,55 @@ uint16_t *data);
 
 static cc2420_status_t CC2420SpiP__Reg__write(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615d020, 
+uint8_t arg_0x7f2d48f6e020, 
 # 63 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Register.nc"
 uint16_t data);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__release(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__immediateRequest(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__request(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void CC2420SpiP__Resource__default__granted(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static bool CC2420SpiP__Resource__isOwner(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void CC2420SpiP__grant__runTask(void );
 # 53 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Strobe.nc"
 static cc2420_status_t CC2420SpiP__Strobe__strobe(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615dd30);
+uint8_t arg_0x7f2d48f6ed30);
 # 62 "/home/kanavoy/tinyos-main/tos/interfaces/Init.nc"
 static error_t StateImplP__Init__init(void );
 # 56 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 static void StateImplP__State__toIdle(
 # 67 "/home/kanavoy/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x7f41e60ea020);
+uint8_t arg_0x7f2d48efc020);
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 static bool StateImplP__State__isState(
 # 67 "/home/kanavoy/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x7f41e60ea020, 
+uint8_t arg_0x7f2d48efc020, 
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 uint8_t myState);
 #line 61
 static bool StateImplP__State__isIdle(
 # 67 "/home/kanavoy/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x7f41e60ea020);
+uint8_t arg_0x7f2d48efc020);
 # 45 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 static error_t StateImplP__State__requestState(
 # 67 "/home/kanavoy/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x7f41e60ea020, 
+uint8_t arg_0x7f2d48efc020, 
 # 45 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 uint8_t reqState);
 
@@ -2231,7 +2232,7 @@ uint8_t reqState);
 
 static void StateImplP__State__forceState(
 # 67 "/home/kanavoy/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x7f41e60ea020, 
+uint8_t arg_0x7f2d48efc020, 
 # 51 "/home/kanavoy/tinyos-main/tos/interfaces/State.nc"
 uint8_t reqState);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -2254,7 +2255,7 @@ uint16_t len);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void Atm128SpiP__ResourceArbiter__granted(
 # 99 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60a36e0);
+uint8_t arg_0x7f2d48eb46e0);
 # 45 "/home/kanavoy/tinyos-main/tos/interfaces/SpiByte.nc"
 static uint8_t Atm128SpiP__SpiByte__write(uint8_t tx);
 # 109 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128Spi.nc"
@@ -2262,23 +2263,23 @@ static void Atm128SpiP__Spi__dataReady(uint8_t data);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__Resource__release(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__Resource__immediateRequest(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__Resource__request(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void Atm128SpiP__Resource__default__granted(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static bool Atm128SpiP__Resource__isOwner(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 89 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128Spi.nc"
 static void HplAtm128SpiP__SPI__sleep(void );
 #line 83
@@ -2332,35 +2333,35 @@ static resource_client_id_t /*Atm128SpiC.Arbiter.Queue*/FcfsResourceQueueC__1__F
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__requested(
 # 52 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd31a0);
+uint8_t arg_0x7f2d48de41a0);
 # 61 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__immediateRequested(
 # 52 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd31a0);
+uint8_t arg_0x7f2d48de41a0);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__unconfigure(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd26e0);
+uint8_t arg_0x7f2d48de36e0);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__configure(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd26e0);
+uint8_t arg_0x7f2d48de36e0);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__release(
 # 51 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd4020);
+uint8_t arg_0x7f2d48de6020);
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__immediateRequest(
 # 51 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd4020);
+uint8_t arg_0x7f2d48de6020);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__request(
 # 51 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd4020);
+uint8_t arg_0x7f2d48de6020);
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__isOwner(
 # 51 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd4020);
+uint8_t arg_0x7f2d48de6020);
 # 90 "/home/kanavoy/tinyos-main/tos/interfaces/ArbiterInfo.nc"
 static bool /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ArbiterInfo__inUse(void );
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -2529,11 +2530,11 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__f
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(
 # 48 "/home/kanavoy/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x7f41e5bf8778);
+uint8_t arg_0x7f2d48a0a778);
 # 64 "/home/kanavoy/tinyos-main/tos/lib/timer/Timer.nc"
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__startPeriodic(
 # 48 "/home/kanavoy/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x7f41e5bf8778, 
+uint8_t arg_0x7f2d48a0a778, 
 # 64 "/home/kanavoy/tinyos-main/tos/lib/timer/Timer.nc"
 uint32_t dt);
 
@@ -2546,7 +2547,7 @@ uint32_t dt);
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__startOneShot(
 # 48 "/home/kanavoy/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x7f41e5bf8778, 
+uint8_t arg_0x7f2d48a0a778, 
 # 73 "/home/kanavoy/tinyos-main/tos/lib/timer/Timer.nc"
 uint32_t dt);
 # 82 "/home/kanavoy/tinyos-main/tos/lib/timer/Counter.nc"
@@ -2689,19 +2690,19 @@ uint8_t len);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420TinyosNetworkP__Resource__release(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/lowpan/CC2420TinyosNetworkP.nc"
-uint8_t arg_0x7f41e5ad6298);
+uint8_t arg_0x7f2d488e7298);
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420TinyosNetworkP__Resource__immediateRequest(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/lowpan/CC2420TinyosNetworkP.nc"
-uint8_t arg_0x7f41e5ad6298);
+uint8_t arg_0x7f2d488e7298);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420TinyosNetworkP__Resource__request(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/lowpan/CC2420TinyosNetworkP.nc"
-uint8_t arg_0x7f41e5ad6298);
+uint8_t arg_0x7f2d488e7298);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void CC2420TinyosNetworkP__Resource__default__granted(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/lowpan/CC2420TinyosNetworkP.nc"
-uint8_t arg_0x7f41e5ad6298);
+uint8_t arg_0x7f2d488e7298);
 # 125 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 static 
 #line 123
@@ -2774,13 +2775,13 @@ static void CC2420ActiveMessageP__CC2420Config__syncDone(error_t error);
 # 95 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 static void CC2420ActiveMessageP__RadioBackoff__default__requestCca(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 95 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 #line 81
 static void CC2420ActiveMessageP__RadioBackoff__default__requestInitialBackoff(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 81 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 
@@ -2791,13 +2792,13 @@ message_t * msg);
 
 static void CC2420ActiveMessageP__RadioBackoff__default__requestCongestionBackoff(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 88 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/SendNotifier.nc"
 static void CC2420ActiveMessageP__SendNotifier__default__aboutToSend(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45258, 
+am_id_t arg_0x7f2d48857258, 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/SendNotifier.nc"
 am_addr_t dest, 
 #line 57
@@ -2844,7 +2845,7 @@ uint8_t len);
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t CC2420ActiveMessageP__AMSend__send(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4b7d8, 
+am_id_t arg_0x7f2d4885c7d8, 
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -2865,7 +2866,7 @@ void *
 
 CC2420ActiveMessageP__AMSend__getPayload(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4b7d8, 
+am_id_t arg_0x7f2d4885c7d8, 
 # 132 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -2874,7 +2875,7 @@ uint8_t len);
 #line 123
 static uint8_t CC2420ActiveMessageP__AMSend__maxPayloadLength(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4b7d8);
+am_id_t arg_0x7f2d4885c7d8);
 # 78 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
 static 
 #line 74
@@ -2884,7 +2885,7 @@ message_t *
 
 CC2420ActiveMessageP__Snoop__default__receive(
 # 50 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a49480, 
+am_id_t arg_0x7f2d4885a480, 
 # 71 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2903,7 +2904,7 @@ message_t *
 
 CC2420ActiveMessageP__Receive__default__receive(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4a908, 
+am_id_t arg_0x7f2d4885b908, 
 # 71 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2979,15 +2980,15 @@ static resource_client_id_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Queue*/Roun
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__default__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 56 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceDefaultOwner.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceDefaultOwner__release(void );
 
@@ -3002,11 +3003,11 @@ static bool /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resou
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__release(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__request(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__grantedTask__runTask(void );
 # 113 "/home/kanavoy/tinyos-main/tos/interfaces/SplitControl.nc"
@@ -3046,7 +3047,7 @@ static void /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__read(
 # 40 "/home/kanavoy/tinyos-main/tos/sensorboards/mda100/SharedAnalogDeviceP.nc"
-uint8_t arg_0x7f41e58eb9f8);
+uint8_t arg_0x7f2d486fc9f8);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__stopDone__runTask(void );
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
@@ -3135,33 +3136,33 @@ static resource_client_id_t /*Atm128AdcC.AdcArbiter.Queue*/RoundRobinResourceQue
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__default__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 56 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceDefaultOwner.nc"
 static error_t /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceDefaultOwner__release(void );
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__release(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__request(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__default__granted(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__isOwner(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__grantedTask__runTask(void );
 # 62 "/home/kanavoy/tinyos-main/tos/lib/power/PowerDownCleanup.nc"
@@ -3173,25 +3174,25 @@ static void /*Atm128AdcC.PM.PowerManager*/AsyncPowerManagerP__0__ResourceDefault
 # 58 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
 static error_t AdcP__ReadNow__read(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57f0280);
+uint8_t arg_0x7f2d48601280);
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
 static void AdcP__ReadNow__default__readDone(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57f0280, 
+uint8_t arg_0x7f2d48601280, 
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
 error_t result, AdcP__ReadNow__val_t val);
 # 32 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__default__getRefVoltage(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 25 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__default__getChannel(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 39 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__default__getPrescaler(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 81 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcSingle.nc"
 static void AdcP__Atm128AdcSingle__dataReady(uint16_t data, bool precise);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -3199,19 +3200,19 @@ static void AdcP__acquiredData__runTask(void );
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__default__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__val_t val);
 #line 63
 static void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__readDone(
 # 26 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c6cf0, 
+uint8_t arg_0x7f2d485d8cf0, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__val_t val);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__default__release(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 # 20 "/home/kanavoy/tinyos-main/tos/platforms/mica/MicaBusAdc.nc"
 static uint8_t MicaBusP__Adc1__getChannel(void );
 # 75 "/home/kanavoy/tinyos-main/tos/chips/atm128/pins/HplAtm128Interrupt.nc"
@@ -3239,23 +3240,23 @@ static uint8_t PhotoTempConfigP__Atm128AdcConfig__getPrescaler(void );
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__read(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020);
+uint8_t arg_0x7f2d485d9020);
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__default__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__val_t val);
 #line 63
 static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__readDone(
 # 26 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c6cf0, 
+uint8_t arg_0x7f2d485d8cf0, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__val_t val);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__granted(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 # 62 "/home/kanavoy/tinyos-main/tos/interfaces/Init.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Queue*/RoundRobinResourceQueueC__2__Init__init(void );
 # 79 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceQueue.nc"
@@ -3282,15 +3283,15 @@ static resource_client_id_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Queue*/Round
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__default__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 56 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceDefaultOwner.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceDefaultOwner__release(void );
 
@@ -3305,11 +3306,11 @@ static bool /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resour
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__release(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__request(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__grantedTask__runTask(void );
 # 113 "/home/kanavoy/tinyos-main/tos/interfaces/SplitControl.nc"
@@ -3349,7 +3350,7 @@ static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__read(
 # 40 "/home/kanavoy/tinyos-main/tos/sensorboards/mda100/SharedAnalogDeviceP.nc"
-uint8_t arg_0x7f41e58eb9f8);
+uint8_t arg_0x7f2d486fc9f8);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__stopDone__runTask(void );
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
@@ -3359,23 +3360,23 @@ static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__read(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020);
+uint8_t arg_0x7f2d485d9020);
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__default__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__val_t val);
 #line 63
 static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__readDone(
 # 26 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c6cf0, 
+uint8_t arg_0x7f2d485d8cf0, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__val_t val);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__granted(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t /*NodeAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__0__AMSend__send(am_addr_t addr, 
 #line 71
@@ -3413,7 +3414,7 @@ error_t error);
 # 110 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(
 # 48 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x7f41e56e2c70, 
+am_id_t arg_0x7f2d484f3c70, 
 # 103 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -3426,7 +3427,7 @@ error_t error);
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__send(
 # 46 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x7f41e56e3990, 
+uint8_t arg_0x7f2d484f4990, 
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3444,7 +3445,7 @@ void *
 
 /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__getPayload(
 # 46 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x7f41e56e3990, 
+uint8_t arg_0x7f2d484f4990, 
 # 122 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3453,11 +3454,11 @@ uint8_t len);
 #line 112
 static uint8_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__maxPayloadLength(
 # 46 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x7f41e56e3990);
+uint8_t arg_0x7f2d484f4990);
 # 100 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(
 # 46 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x7f41e56e3990, 
+uint8_t arg_0x7f2d484f4990, 
 # 96 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3550,15 +3551,9 @@ static inline void NodeC__RadioControl__stopDone(error_t error);
 static bool NodeC__send(readings_t *payload);
 #line 78
 static inline message_t *NodeC__Receive__receive(message_t *msg, void *payload, uint8_t len);
-
-
-
-
-
-
-
+#line 92
 static inline void NodeC__Timer__fired(void );
-#line 105
+#line 111
 static inline void NodeC__AMSend__sendDone(message_t *msg, error_t error);
 
 
@@ -3711,7 +3706,7 @@ int main(void )   ;
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__runTask(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x7f41e6905960);
+uint8_t arg_0x7f2d49719960);
 # 76 "/home/kanavoy/tinyos-main/tos/interfaces/McuSleep.nc"
 static void SchedulerBasicP__McuSleep__sleep(void );
 # 61 "/home/kanavoy/tinyos-main/tos/system/SchedulerBasicP.nc"
@@ -4754,13 +4749,13 @@ uint16_t len);
 # 91 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 static void CC2420SpiP__Fifo__writeDone(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 91 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length, error_t error);
 #line 71
 static void CC2420SpiP__Fifo__readDone(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e615f020, 
+uint8_t arg_0x7f2d48f70020, 
 # 71 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
 uint8_t * data, uint8_t length, error_t error);
 # 24 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/ChipSpiResource.nc"
@@ -4787,7 +4782,7 @@ static bool CC2420SpiP__SpiResource__isOwner(void );
 #line 102
 static void CC2420SpiP__Resource__granted(
 # 45 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x7f41e6162d08);
+uint8_t arg_0x7f2d48f73d08);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t CC2420SpiP__grant__postTask(void );
 # 88 "/home/kanavoy/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
@@ -4969,19 +4964,19 @@ error_t error);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__ResourceArbiter__release(
 # 99 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60a36e0);
+uint8_t arg_0x7f2d48eb46e0);
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__ResourceArbiter__immediateRequest(
 # 99 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60a36e0);
+uint8_t arg_0x7f2d48eb46e0);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t Atm128SpiP__ResourceArbiter__request(
 # 99 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60a36e0);
+uint8_t arg_0x7f2d48eb46e0);
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static bool Atm128SpiP__ResourceArbiter__isOwner(
 # 99 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60a36e0);
+uint8_t arg_0x7f2d48eb46e0);
 # 89 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128Spi.nc"
 static void Atm128SpiP__Spi__sleep(void );
 #line 83
@@ -5010,7 +5005,7 @@ static void Atm128SpiP__Spi__setClockPhase(bool sampleOnTrailing);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void Atm128SpiP__Resource__granted(
 # 95 "/home/kanavoy/tinyos-main/tos/chips/atm128/spi/Atm128SpiP.nc"
-uint8_t arg_0x7f41e60c0020);
+uint8_t arg_0x7f2d48ed1020);
 # 90 "/home/kanavoy/tinyos-main/tos/interfaces/ArbiterInfo.nc"
 static bool Atm128SpiP__ArbiterInfo__inUse(void );
 # 52 "/home/kanavoy/tinyos-main/tos/interfaces/McuPowerState.nc"
@@ -5173,19 +5168,19 @@ static inline error_t /*Atm128SpiC.Arbiter.Queue*/FcfsResourceQueueC__1__FcfsQue
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__requested(
 # 52 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd31a0);
+uint8_t arg_0x7f2d48de41a0);
 # 61 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__immediateRequested(
 # 52 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd31a0);
+uint8_t arg_0x7f2d48de41a0);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__unconfigure(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd26e0);
+uint8_t arg_0x7f2d48de36e0);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__configure(
 # 56 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd26e0);
+uint8_t arg_0x7f2d48de36e0);
 # 79 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceQueue.nc"
 static error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Queue__enqueue(resource_client_id_t id);
 #line 53
@@ -5195,7 +5190,7 @@ static resource_client_id_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Que
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__granted(
 # 51 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
-uint8_t arg_0x7f41e5fd4020);
+uint8_t arg_0x7f2d48de6020);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__grantedTask__postTask(void );
 # 69 "/home/kanavoy/tinyos-main/tos/system/SimpleArbiterP.nc"
@@ -6021,7 +6016,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__s
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(
 # 48 "/home/kanavoy/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x7f41e5bf8778);
+uint8_t arg_0x7f2d48a0a778);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0____nesc_unnamed4360 {
 #line 71
@@ -6294,7 +6289,7 @@ uint8_t len);
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void CC2420TinyosNetworkP__Resource__granted(
 # 46 "/home/kanavoy/tinyos-main/tos/chips/cc2420/lowpan/CC2420TinyosNetworkP.nc"
-uint8_t arg_0x7f41e5ad6298);
+uint8_t arg_0x7f2d488e7298);
 # 100 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 static void CC2420TinyosNetworkP__BareSend__sendDone(
 #line 96
@@ -6459,13 +6454,13 @@ static uint16_t CC2420ActiveMessageP__CC2420Config__getPanAddr(void );
 # 95 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 static void CC2420ActiveMessageP__RadioBackoff__requestCca(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 95 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 #line 81
 static void CC2420ActiveMessageP__RadioBackoff__requestInitialBackoff(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 81 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 
@@ -6476,13 +6471,13 @@ message_t * msg);
 
 static void CC2420ActiveMessageP__RadioBackoff__requestCongestionBackoff(
 # 54 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45d60, 
+am_id_t arg_0x7f2d48857d60, 
 # 88 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
 message_t * msg);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/SendNotifier.nc"
 static void CC2420ActiveMessageP__SendNotifier__aboutToSend(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a45258, 
+am_id_t arg_0x7f2d48857258, 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/SendNotifier.nc"
 am_addr_t dest, 
 #line 57
@@ -6490,7 +6485,7 @@ message_t * msg);
 # 110 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 static void CC2420ActiveMessageP__AMSend__sendDone(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4b7d8, 
+am_id_t arg_0x7f2d4885c7d8, 
 # 103 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -6509,7 +6504,7 @@ message_t *
 
 CC2420ActiveMessageP__Snoop__receive(
 # 50 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a49480, 
+am_id_t arg_0x7f2d4885a480, 
 # 71 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -6532,7 +6527,7 @@ message_t *
 
 CC2420ActiveMessageP__Receive__receive(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-am_id_t arg_0x7f41e5a4a908, 
+am_id_t arg_0x7f2d4885b908, 
 # 71 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -6708,15 +6703,15 @@ static inline error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Queue*/RoundRobin
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 79 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceQueue.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Queue__enqueue(resource_client_id_t id);
 #line 53
@@ -6730,7 +6725,7 @@ static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resou
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__granted(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__grantedTask__postTask(void );
 # 75 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
@@ -6915,7 +6910,7 @@ static error_t /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDevice
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__readDone(
 # 40 "/home/kanavoy/tinyos-main/tos/sensorboards/mda100/SharedAnalogDeviceP.nc"
-uint8_t arg_0x7f41e58eb9f8, 
+uint8_t arg_0x7f2d486fc9f8, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__val_t val);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -7138,15 +7133,15 @@ static inline error_t /*Atm128AdcC.AdcArbiter.Queue*/RoundRobinResourceQueueC__1
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 79 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceQueue.nc"
 static error_t /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Queue__enqueue(resource_client_id_t id);
 #line 53
@@ -7160,7 +7155,7 @@ static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceDefaultOwner__
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__granted(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__grantedTask__postTask(void );
 # 75 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
@@ -7244,27 +7239,27 @@ static inline void /*Atm128AdcC.PM.PowerManager*/AsyncPowerManagerP__0__PowerDow
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void AdcP__Read__readDone(
 # 48 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57f24f8, 
+uint8_t arg_0x7f2d486044f8, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, AdcP__Read__val_t val);
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
 static void AdcP__ReadNow__readDone(
 # 49 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57f0280, 
+uint8_t arg_0x7f2d48601280, 
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
 error_t result, AdcP__ReadNow__val_t val);
 # 32 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__getRefVoltage(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 25 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__getChannel(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 39 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
 static uint8_t AdcP__Atm128AdcConfig__getPrescaler(
 # 53 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/AdcP.nc"
-uint8_t arg_0x7f41e57ed7f8);
+uint8_t arg_0x7f2d485ff7f8);
 # 70 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcSingle.nc"
 static bool AdcP__Atm128AdcSingle__getData(uint8_t channel, uint8_t refVoltage, 
 bool leftJustify, uint8_t prescaler);
@@ -7337,13 +7332,13 @@ static inline void AdcP__ReadNow__default__readDone(uint8_t c, error_t e, uint16
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__val_t val);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__release(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 #line 39
 static inline void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__readDone(uint8_t client, error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__width_t data);
 
@@ -7404,21 +7399,21 @@ static inline uint8_t PhotoTempConfigP__Atm128AdcConfig__getPrescaler(void );
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__val_t val);
 #line 55
 static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__read(
 # 26 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c6cf0);
+uint8_t arg_0x7f2d485d8cf0);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__release(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__request(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 
 
 
@@ -7477,15 +7472,15 @@ static inline error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Queue*/RoundRobinR
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__requested(
 # 55 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5968328);
+uint8_t arg_0x7f2d48779328);
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__unconfigure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__configure(
 # 60 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e5966538);
+uint8_t arg_0x7f2d48777538);
 # 79 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceQueue.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Queue__enqueue(resource_client_id_t id);
 #line 53
@@ -7499,7 +7494,7 @@ static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resour
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__granted(
 # 54 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x7f41e59691a0);
+uint8_t arg_0x7f2d4877b1a0);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__grantedTask__postTask(void );
 # 75 "/home/kanavoy/tinyos-main/tos/system/ArbiterP.nc"
@@ -7684,7 +7679,7 @@ static error_t /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__readDone(
 # 40 "/home/kanavoy/tinyos-main/tos/sensorboards/mda100/SharedAnalogDeviceP.nc"
-uint8_t arg_0x7f41e58eb9f8, 
+uint8_t arg_0x7f2d486fc9f8, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__val_t val);
 # 67 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -7754,21 +7749,21 @@ static inline void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDev
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__readDone(
 # 24 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c8020, 
+uint8_t arg_0x7f2d485d9020, 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
 error_t result, /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__val_t val);
 #line 55
 static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__read(
 # 26 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c6cf0);
+uint8_t arg_0x7f2d485d8cf0);
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__release(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__request(
 # 27 "/home/kanavoy/tinyos-main/tos/system/ArbitratedReadC.nc"
-uint8_t arg_0x7f41e57c4940);
+uint8_t arg_0x7f2d485d5940);
 
 
 
@@ -7867,7 +7862,7 @@ static inline void */*NodeAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__0
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(
 # 48 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x7f41e56e2c70, 
+am_id_t arg_0x7f2d484f3c70, 
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -7888,7 +7883,7 @@ void *
 
 /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__getPayload(
 # 48 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x7f41e56e2c70, 
+am_id_t arg_0x7f2d484f3c70, 
 # 132 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -7897,11 +7892,11 @@ uint8_t len);
 #line 123
 static uint8_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__maxPayloadLength(
 # 48 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x7f41e56e2c70);
+am_id_t arg_0x7f2d484f3c70);
 # 100 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(
 # 46 "/home/kanavoy/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x7f41e56e3990, 
+uint8_t arg_0x7f2d484f4990, 
 # 96 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -8565,15 +8560,15 @@ static inline void NodeC__report_sent(void )
   NodeC__Leds__led1Toggle();
 }
 
-#line 105
+#line 111
 static inline void NodeC__AMSend__sendDone(message_t *msg, error_t error)
-#line 105
+#line 111
 {
   if (error == SUCCESS) {
     NodeC__report_sent();
     }
   else {
-#line 109
+#line 115
     NodeC__report_problem();
     }
 }
@@ -8599,9 +8594,9 @@ static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__send
 }
 
 # 100 "/home/kanavoy/tinyos-main/tos/interfaces/Send.nc"
-inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(uint8_t arg_0x7f41e56e3990, message_t * msg, error_t error){
+inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(uint8_t arg_0x7f2d484f4990, message_t * msg, error_t error){
 #line 100
-  switch (arg_0x7f41e56e3990) {
+  switch (arg_0x7f2d484f4990) {
 #line 100
     case 0U:
 #line 100
@@ -8611,7 +8606,7 @@ inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(uint
 #line 100
     default:
 #line 100
-      /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(arg_0x7f41e56e3990, msg, error);
+      /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(arg_0x7f2d484f4990, msg, error);
 #line 100
       break;
 #line 100
@@ -8672,13 +8667,13 @@ inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__errorTask__postT
 }
 #line 67
 # 80 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
-inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x7f41e56e2c70, am_addr_t addr, message_t * msg, uint8_t len){
+inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x7f2d484f3c70, am_addr_t addr, message_t * msg, uint8_t len){
 #line 80
   unsigned char __nesc_result;
 #line 80
 
 #line 80
-  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x7f41e56e2c70, addr, msg, len);
+  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x7f2d484f3c70, addr, msg, len);
 #line 80
 
 #line 80
@@ -8921,9 +8916,9 @@ static inline void CC2420ActiveMessageP__SendNotifier__default__aboutToSend(am_i
 }
 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/SendNotifier.nc"
-inline static void CC2420ActiveMessageP__SendNotifier__aboutToSend(am_id_t arg_0x7f41e5a45258, am_addr_t dest, message_t * msg){
+inline static void CC2420ActiveMessageP__SendNotifier__aboutToSend(am_id_t arg_0x7f2d48857258, am_addr_t dest, message_t * msg){
 #line 59
-    CC2420ActiveMessageP__SendNotifier__default__aboutToSend(arg_0x7f41e5a45258, dest, msg);
+    CC2420ActiveMessageP__SendNotifier__default__aboutToSend(arg_0x7f2d48857258, dest, msg);
 #line 59
 }
 #line 59
@@ -9123,9 +9118,9 @@ message_t *msg)
 }
 
 # 95 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
-inline static void CC2420ActiveMessageP__RadioBackoff__requestCca(am_id_t arg_0x7f41e5a45d60, message_t * msg){
+inline static void CC2420ActiveMessageP__RadioBackoff__requestCca(am_id_t arg_0x7f2d48857d60, message_t * msg){
 #line 95
-    CC2420ActiveMessageP__RadioBackoff__default__requestCca(arg_0x7f41e5a45d60, msg);
+    CC2420ActiveMessageP__RadioBackoff__default__requestCca(arg_0x7f2d48857d60, msg);
 #line 95
 }
 #line 95
@@ -9218,8 +9213,8 @@ inline static cc2420_header_t * CC2420CsmaP__CC2420PacketBody__getHeader(message
 static inline error_t CC2420CsmaP__Send__send(message_t *p_msg, uint8_t len)
 #line 122
 {
+  unsigned char *__nesc_temp50;
   unsigned char *__nesc_temp49;
-  unsigned char *__nesc_temp48;
 #line 124
   cc2420_header_t *header = CC2420CsmaP__CC2420PacketBody__getHeader(p_msg);
   cc2420_metadata_t *metadata = CC2420CsmaP__CC2420PacketBody__getMetadata(p_msg);
@@ -9255,11 +9250,11 @@ static inline error_t CC2420CsmaP__Send__send(message_t *p_msg, uint8_t len)
 
 
 
-  (__nesc_temp48 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp48, __nesc_ntoh_leuint16(__nesc_temp48) & (((1 << IEEE154_FCF_ACK_REQ) | (
+  (__nesc_temp49 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp49, __nesc_ntoh_leuint16(__nesc_temp49) & (((1 << IEEE154_FCF_ACK_REQ) | (
   0x3 << IEEE154_FCF_SRC_ADDR_MODE)) | (
   0x3 << IEEE154_FCF_DEST_ADDR_MODE))));
 
-  (__nesc_temp49 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp49, __nesc_ntoh_leuint16(__nesc_temp49) | ((IEEE154_TYPE_DATA << IEEE154_FCF_FRAME_TYPE) | (
+  (__nesc_temp50 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp50, __nesc_ntoh_leuint16(__nesc_temp50) | ((IEEE154_TYPE_DATA << IEEE154_FCF_FRAME_TYPE) | (
   1 << IEEE154_FCF_INTRAPAN))));
 
   __nesc_hton_int8(metadata->ack.nxdata, FALSE);
@@ -9386,13 +9381,13 @@ inline static error_t CC2420SpiP__WorkingState__requestState(uint8_t reqState){
 }
 #line 45
 # 128 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static bool Atm128SpiP__ResourceArbiter__isOwner(uint8_t arg_0x7f41e60a36e0){
+inline static bool Atm128SpiP__ResourceArbiter__isOwner(uint8_t arg_0x7f2d48eb46e0){
 #line 128
   unsigned char __nesc_result;
 #line 128
 
 #line 128
-  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__isOwner(arg_0x7f41e60a36e0);
+  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__isOwner(arg_0x7f2d48eb46e0);
 #line 128
 
 #line 128
@@ -9480,9 +9475,9 @@ static inline void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConf
 }
 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x7f41e5fd26e0){
+inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x7f2d48de36e0){
 #line 59
-    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__configure(arg_0x7f41e5fd26e0);
+    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__configure(arg_0x7f2d48de36e0);
 #line 59
 }
 #line 59
@@ -9493,9 +9488,9 @@ static inline void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequ
 }
 
 # 61 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0x7f41e5fd31a0){
+inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0x7f2d48de41a0){
 #line 61
-    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__immediateRequested(arg_0x7f41e5fd31a0);
+    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__immediateRequested(arg_0x7f2d48de41a0);
 #line 61
 }
 #line 61
@@ -9533,13 +9528,13 @@ static inline error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource_
 }
 
 # 97 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t Atm128SpiP__ResourceArbiter__immediateRequest(uint8_t arg_0x7f41e60a36e0){
+inline static error_t Atm128SpiP__ResourceArbiter__immediateRequest(uint8_t arg_0x7f2d48eb46e0){
 #line 97
   unsigned char __nesc_result;
 #line 97
 
 #line 97
-  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__immediateRequest(arg_0x7f41e60a36e0);
+  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__immediateRequest(arg_0x7f2d48eb46e0);
 #line 97
 
 #line 97
@@ -9923,9 +9918,9 @@ static inline void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequ
 }
 
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__requested(uint8_t arg_0x7f41e5fd31a0){
+inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__requested(uint8_t arg_0x7f2d48de41a0){
 #line 53
-    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__requested(arg_0x7f41e5fd31a0);
+    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceRequested__default__requested(arg_0x7f2d48de41a0);
 #line 53
 }
 #line 53
@@ -9963,13 +9958,13 @@ static inline error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource_
 }
 
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t Atm128SpiP__ResourceArbiter__request(uint8_t arg_0x7f41e60a36e0){
+inline static error_t Atm128SpiP__ResourceArbiter__request(uint8_t arg_0x7f2d48eb46e0){
 #line 88
   unsigned char __nesc_result;
 #line 88
 
 #line 88
-  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__request(arg_0x7f41e60a36e0);
+  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__request(arg_0x7f2d48eb46e0);
 #line 88
 
 #line 88
@@ -10550,9 +10545,9 @@ static inline void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigu
 }
 
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__unconfigure(uint8_t arg_0x7f41e5966538){
+inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__unconfigure(uint8_t arg_0x7f2d48777538){
 #line 65
-    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__unconfigure(arg_0x7f41e5966538);
+    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__unconfigure(arg_0x7f2d48777538);
 #line 65
 }
 #line 65
@@ -10654,9 +10649,9 @@ static inline void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequest
 }
 
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__requested(uint8_t arg_0x7f41e5968328){
+inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__requested(uint8_t arg_0x7f2d48779328){
 #line 53
-    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__default__requested(arg_0x7f41e5968328);
+    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceRequested__default__requested(arg_0x7f2d48779328);
 #line 53
 }
 #line 53
@@ -10854,9 +10849,9 @@ static __inline  uint16_t __nesc_hton_uint16(void * target, uint16_t value)
   return value;
 }
 
-# 112 "NodeC.nc"
+# 118 "NodeC.nc"
 static inline void NodeC__TempRead__readDone(error_t result, uint16_t data)
-#line 112
+#line 118
 {
   if (result != SUCCESS) {
       data = 0xffff;
@@ -10874,9 +10869,9 @@ static inline void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Re
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__readDone(uint8_t arg_0x7f41e57c8020, error_t result, /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__val_t val){
+inline static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__readDone(uint8_t arg_0x7f2d485d9020, error_t result, /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__val_t val){
 #line 63
-  switch (arg_0x7f41e57c8020) {
+  switch (arg_0x7f2d485d9020) {
 #line 63
     case 0U:
 #line 63
@@ -10886,7 +10881,7 @@ inline static void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Re
 #line 63
     default:
 #line 63
-      /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__default__readDone(arg_0x7f41e57c8020, result, val);
+      /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Read__default__readDone(arg_0x7f2d485d9020, result, val);
 #line 63
       break;
 #line 63
@@ -10933,9 +10928,9 @@ static inline void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2_
 }
 
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__unconfigure(uint8_t arg_0x7f41e5966538){
+inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__unconfigure(uint8_t arg_0x7f2d48777538){
 #line 65
-    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__unconfigure(arg_0x7f41e5966538);
+    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__unconfigure(arg_0x7f2d48777538);
 #line 65
 }
 #line 65
@@ -11106,13 +11101,13 @@ static inline error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP_
 }
 
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__release(uint8_t arg_0x7f41e57c4940){
+inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__release(uint8_t arg_0x7f2d485d5940){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  __nesc_result = /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__release(arg_0x7f41e57c4940);
+  __nesc_result = /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__release(arg_0x7f2d485d5940);
 #line 120
 
 #line 120
@@ -11129,9 +11124,9 @@ static inline void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Se
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__readDone(uint8_t arg_0x7f41e58eb9f8, error_t result, /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__val_t val){
+inline static void /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__readDone(uint8_t arg_0x7f2d486fc9f8, error_t result, /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__val_t val){
 #line 63
-  /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__readDone(arg_0x7f41e58eb9f8, result, val);
+  /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__readDone(arg_0x7f2d486fc9f8, result, val);
 #line 63
 }
 #line 63
@@ -11346,13 +11341,13 @@ static inline error_t /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalog
 }
 
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__read(uint8_t arg_0x7f41e57c6cf0){
+inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Service__read(uint8_t arg_0x7f2d485d8cf0){
 #line 55
   unsigned char __nesc_result;
 #line 55
 
 #line 55
-  __nesc_result = /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__read(arg_0x7f41e57c6cf0);
+  __nesc_result = /*TempImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__1__Read__read(arg_0x7f2d485d8cf0);
 #line 55
 
 #line 55
@@ -11368,9 +11363,9 @@ static inline void /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Re
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__granted(uint8_t arg_0x7f41e59691a0){
+inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__granted(uint8_t arg_0x7f2d4877b1a0){
 #line 102
-  /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__granted(arg_0x7f41e59691a0);
+  /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__granted(arg_0x7f2d4877b1a0);
 #line 102
 }
 #line 102
@@ -11381,9 +11376,9 @@ static inline void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2_
 }
 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__configure(uint8_t arg_0x7f41e5966538){
+inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__configure(uint8_t arg_0x7f2d48777538){
 #line 59
-    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__configure(arg_0x7f41e5966538);
+    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceConfigure__default__configure(arg_0x7f2d48777538);
 #line 59
 }
 #line 59
@@ -11620,13 +11615,13 @@ static inline uint8_t AdcP__Atm128AdcConfig__default__getChannel(uint8_t c)
 }
 
 # 25 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
-inline static uint8_t AdcP__Atm128AdcConfig__getChannel(uint8_t arg_0x7f41e57ed7f8){
+inline static uint8_t AdcP__Atm128AdcConfig__getChannel(uint8_t arg_0x7f2d485ff7f8){
 #line 25
   unsigned char __nesc_result;
 #line 25
 
 #line 25
-  switch (arg_0x7f41e57ed7f8) {
+  switch (arg_0x7f2d485ff7f8) {
 #line 25
     case /*PhotoImplP.SharedAnalogDeviceC.Adc*/AdcReadNowClientC__0__ID:
 #line 25
@@ -11642,7 +11637,7 @@ inline static uint8_t AdcP__Atm128AdcConfig__getChannel(uint8_t arg_0x7f41e57ed7
 #line 25
     default:
 #line 25
-      __nesc_result = AdcP__Atm128AdcConfig__default__getChannel(arg_0x7f41e57ed7f8);
+      __nesc_result = AdcP__Atm128AdcConfig__default__getChannel(arg_0x7f2d485ff7f8);
 #line 25
       break;
 #line 25
@@ -11676,13 +11671,13 @@ static inline uint8_t AdcP__Atm128AdcConfig__default__getRefVoltage(uint8_t c)
 }
 
 # 32 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
-inline static uint8_t AdcP__Atm128AdcConfig__getRefVoltage(uint8_t arg_0x7f41e57ed7f8){
+inline static uint8_t AdcP__Atm128AdcConfig__getRefVoltage(uint8_t arg_0x7f2d485ff7f8){
 #line 32
   unsigned char __nesc_result;
 #line 32
 
 #line 32
-  switch (arg_0x7f41e57ed7f8) {
+  switch (arg_0x7f2d485ff7f8) {
 #line 32
     case /*PhotoImplP.SharedAnalogDeviceC.Adc*/AdcReadNowClientC__0__ID:
 #line 32
@@ -11698,7 +11693,7 @@ inline static uint8_t AdcP__Atm128AdcConfig__getRefVoltage(uint8_t arg_0x7f41e57
 #line 32
     default:
 #line 32
-      __nesc_result = AdcP__Atm128AdcConfig__default__getRefVoltage(arg_0x7f41e57ed7f8);
+      __nesc_result = AdcP__Atm128AdcConfig__default__getRefVoltage(arg_0x7f2d485ff7f8);
 #line 32
       break;
 #line 32
@@ -11732,13 +11727,13 @@ static inline uint8_t AdcP__Atm128AdcConfig__default__getPrescaler(uint8_t c)
 }
 
 # 39 "/home/kanavoy/tinyos-main/tos/chips/atm128/adc/Atm128AdcConfig.nc"
-inline static uint8_t AdcP__Atm128AdcConfig__getPrescaler(uint8_t arg_0x7f41e57ed7f8){
+inline static uint8_t AdcP__Atm128AdcConfig__getPrescaler(uint8_t arg_0x7f2d485ff7f8){
 #line 39
   unsigned char __nesc_result;
 #line 39
 
 #line 39
-  switch (arg_0x7f41e57ed7f8) {
+  switch (arg_0x7f2d485ff7f8) {
 #line 39
     case /*PhotoImplP.SharedAnalogDeviceC.Adc*/AdcReadNowClientC__0__ID:
 #line 39
@@ -11754,7 +11749,7 @@ inline static uint8_t AdcP__Atm128AdcConfig__getPrescaler(uint8_t arg_0x7f41e57e
 #line 39
     default:
 #line 39
-      __nesc_result = AdcP__Atm128AdcConfig__default__getPrescaler(arg_0x7f41e57ed7f8);
+      __nesc_result = AdcP__Atm128AdcConfig__default__getPrescaler(arg_0x7f2d485ff7f8);
 #line 39
       break;
 #line 39
@@ -11780,9 +11775,9 @@ static inline void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__default__
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__readDone(uint8_t arg_0x7f41e57c8020, error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__val_t val){
+inline static void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__readDone(uint8_t arg_0x7f2d485d9020, error_t result, /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__val_t val){
 #line 63
-    /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__default__readDone(arg_0x7f41e57c8020, result, val);
+    /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Read__default__readDone(arg_0x7f2d485d9020, result, val);
 #line 63
 }
 #line 63
@@ -11795,13 +11790,13 @@ static inline error_t /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__de
 }
 
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__release(uint8_t arg_0x7f41e57c4940){
+inline static error_t /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__release(uint8_t arg_0x7f2d485d5940){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-    __nesc_result = /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__default__release(arg_0x7f41e57c4940);
+    __nesc_result = /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Resource__default__release(arg_0x7f2d485d5940);
 #line 120
 
 #line 120
@@ -11818,9 +11813,9 @@ static inline void /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__readDo
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void AdcP__Read__readDone(uint8_t arg_0x7f41e57f24f8, error_t result, AdcP__Read__val_t val){
+inline static void AdcP__Read__readDone(uint8_t arg_0x7f2d486044f8, error_t result, AdcP__Read__val_t val){
 #line 63
-  /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__readDone(arg_0x7f41e57f24f8, result, val);
+  /*WireAdcP.ArbitrateRead*/ArbitratedReadC__0__Service__readDone(arg_0x7f2d486044f8, result, val);
 #line 63
 }
 #line 63
@@ -11981,9 +11976,9 @@ static inline void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__defau
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__granted(uint8_t arg_0x7f41e59691a0){
+inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__granted(uint8_t arg_0x7f2d4877b1a0){
 #line 102
-  switch (arg_0x7f41e59691a0) {
+  switch (arg_0x7f2d4877b1a0) {
 #line 102
     case /*PhotoImplP.SharedAnalogDeviceC.Adc*/AdcReadNowClientC__0__HAL_ID:
 #line 102
@@ -11999,7 +11994,7 @@ inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__grant
 #line 102
     default:
 #line 102
-      /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__default__granted(arg_0x7f41e59691a0);
+      /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__Resource__default__granted(arg_0x7f2d4877b1a0);
 #line 102
       break;
 #line 102
@@ -12014,9 +12009,9 @@ static inline void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigu
 }
 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__configure(uint8_t arg_0x7f41e5966538){
+inline static void /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__configure(uint8_t arg_0x7f2d48777538){
 #line 59
-    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__configure(arg_0x7f41e5966538);
+    /*Atm128AdcC.AdcArbiter.Arbiter*/ArbiterP__1__ResourceConfigure__default__configure(arg_0x7f2d48777538);
 #line 59
 }
 #line 59
@@ -12174,9 +12169,9 @@ inline static error_t /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalo
 #line 88
 }
 #line 88
-# 121 "NodeC.nc"
+# 127 "NodeC.nc"
 static inline void NodeC__PhotoRead__readDone(error_t result, uint16_t data)
-#line 121
+#line 127
 {
   if (result != SUCCESS) {
       data = 0xffff;
@@ -12194,9 +12189,9 @@ static inline void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__R
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__readDone(uint8_t arg_0x7f41e57c8020, error_t result, /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__val_t val){
+inline static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__readDone(uint8_t arg_0x7f2d485d9020, error_t result, /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__val_t val){
 #line 63
-  switch (arg_0x7f41e57c8020) {
+  switch (arg_0x7f2d485d9020) {
 #line 63
     case 0U:
 #line 63
@@ -12206,7 +12201,7 @@ inline static void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__R
 #line 63
     default:
 #line 63
-      /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__default__readDone(arg_0x7f41e57c8020, result, val);
+      /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Read__default__readDone(arg_0x7f2d485d9020, result, val);
 #line 63
       break;
 #line 63
@@ -12253,9 +12248,9 @@ static inline void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0
 }
 
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x7f41e5966538){
+inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x7f2d48777538){
 #line 65
-    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x7f41e5966538);
+    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x7f2d48777538);
 #line 65
 }
 #line 65
@@ -12426,13 +12421,13 @@ static inline error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP
 }
 
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__release(uint8_t arg_0x7f41e57c4940){
+inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__release(uint8_t arg_0x7f2d485d5940){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__release(arg_0x7f41e57c4940);
+  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__release(arg_0x7f2d485d5940);
 #line 120
 
 #line 120
@@ -12449,9 +12444,9 @@ static inline void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__S
 }
 
 # 63 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static void /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__readDone(uint8_t arg_0x7f41e58eb9f8, error_t result, /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__val_t val){
+inline static void /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__readDone(uint8_t arg_0x7f2d486fc9f8, error_t result, /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__val_t val){
 #line 63
-  /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__readDone(arg_0x7f41e58eb9f8, result, val);
+  /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__readDone(arg_0x7f2d486fc9f8, result, val);
 #line 63
 }
 #line 63
@@ -12644,13 +12639,13 @@ static inline error_t /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalo
 }
 
 # 55 "/home/kanavoy/tinyos-main/tos/interfaces/Read.nc"
-inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__read(uint8_t arg_0x7f41e57c6cf0){
+inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Service__read(uint8_t arg_0x7f2d485d8cf0){
 #line 55
   unsigned char __nesc_result;
 #line 55
 
 #line 55
-  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__read(arg_0x7f41e57c6cf0);
+  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.AnalogDevice*/SharedAnalogDeviceP__0__Read__read(arg_0x7f2d485d8cf0);
 #line 55
 
 #line 55
@@ -12666,9 +12661,9 @@ static inline void /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__R
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0x7f41e59691a0){
+inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0x7f2d4877b1a0){
 #line 102
-  /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__granted(arg_0x7f41e59691a0);
+  /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__granted(arg_0x7f2d4877b1a0);
 #line 102
 }
 #line 102
@@ -12679,9 +12674,9 @@ static inline void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0
 }
 
 # 59 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x7f41e5966538){
+inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x7f2d48777538){
 #line 59
-    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0x7f41e5966538);
+    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0x7f2d48777538);
 #line 59
 }
 #line 59
@@ -12720,9 +12715,9 @@ static inline void CC2420TinyosNetworkP__Resource__default__granted(uint8_t clie
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void CC2420TinyosNetworkP__Resource__granted(uint8_t arg_0x7f41e5ad6298){
+inline static void CC2420TinyosNetworkP__Resource__granted(uint8_t arg_0x7f2d488e7298){
 #line 102
-  switch (arg_0x7f41e5ad6298) {
+  switch (arg_0x7f2d488e7298) {
 #line 102
     case CC2420ActiveMessageC__CC2420_AM_SEND_ID:
 #line 102
@@ -12732,7 +12727,7 @@ inline static void CC2420TinyosNetworkP__Resource__granted(uint8_t arg_0x7f41e5a
 #line 102
     default:
 #line 102
-      CC2420TinyosNetworkP__Resource__default__granted(arg_0x7f41e5ad6298);
+      CC2420TinyosNetworkP__Resource__default__granted(arg_0x7f2d488e7298);
 #line 102
       break;
 #line 102
@@ -13029,9 +13024,9 @@ static inline void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2_
 }
 
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__requested(uint8_t arg_0x7f41e5968328){
+inline static void /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__requested(uint8_t arg_0x7f2d48779328){
 #line 53
-    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__default__requested(arg_0x7f41e5968328);
+    /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__ResourceRequested__default__requested(arg_0x7f2d48779328);
 #line 53
 }
 #line 53
@@ -13087,13 +13082,13 @@ static inline error_t /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP_
 }
 
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__request(uint8_t arg_0x7f41e57c4940){
+inline static error_t /*ArbitratedTempDeviceP.ArbitrateRead*/ArbitratedReadC__2__Resource__request(uint8_t arg_0x7f2d485d5940){
 #line 88
   unsigned char __nesc_result;
 #line 88
 
 #line 88
-  __nesc_result = /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__request(arg_0x7f41e57c4940);
+  __nesc_result = /*TempImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__2__Resource__request(arg_0x7f2d485d5940);
 #line 88
 
 #line 88
@@ -13210,9 +13205,9 @@ static inline void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0
 }
 
 # 53 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__requested(uint8_t arg_0x7f41e5968328){
+inline static void /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__requested(uint8_t arg_0x7f2d48779328){
 #line 53
-    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__default__requested(arg_0x7f41e5968328);
+    /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__ResourceRequested__default__requested(arg_0x7f2d48779328);
 #line 53
 }
 #line 53
@@ -13268,13 +13263,13 @@ static inline error_t /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP
 }
 
 # 88 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__request(uint8_t arg_0x7f41e57c4940){
+inline static error_t /*ArbitratedPhotoDeviceP.ArbitrateRead*/ArbitratedReadC__1__Resource__request(uint8_t arg_0x7f2d485d5940){
 #line 88
   unsigned char __nesc_result;
 #line 88
 
 #line 88
-  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__request(arg_0x7f41e57c4940);
+  __nesc_result = /*PhotoImplP.SharedAnalogDeviceC.Arbiter.Arbiter*/ArbiterP__0__Resource__request(arg_0x7f2d485d5940);
 #line 88
 
 #line 88
@@ -13304,32 +13299,32 @@ inline static error_t NodeC__PhotoRead__read(void ){
 #line 55
 }
 #line 55
-# 86 "NodeC.nc"
+# 92 "NodeC.nc"
 static inline void NodeC__Timer__fired(void )
-#line 86
+#line 92
 {
-  unsigned char __nesc_temp47;
-  unsigned char *__nesc_temp46;
-  unsigned char __nesc_temp45;
-  unsigned char *__nesc_temp44;
+  unsigned char __nesc_temp48;
+  unsigned char *__nesc_temp47;
+  unsigned char __nesc_temp46;
+  unsigned char *__nesc_temp45;
 
-#line 87
+#line 93
   if (NodeC__photoreading >= NREADINGS) {
       if (NodeC__send(&NodeC__localPhoto)) {
           NodeC__photoreading = 0;
-          (__nesc_temp44 = NodeC__localPhoto.count.nxdata, __nesc_hton_uint8(__nesc_temp44, (__nesc_temp45 = __nesc_ntoh_uint8(__nesc_temp44)) + 1), __nesc_temp45);
+          (__nesc_temp45 = NodeC__localPhoto.count.nxdata, __nesc_hton_uint8(__nesc_temp45, (__nesc_temp46 = __nesc_ntoh_uint8(__nesc_temp45)) + 1), __nesc_temp46);
         }
     }
   if (NodeC__tempreading >= NREADINGS) {
       if (NodeC__send(&NodeC__localTemp)) {
           NodeC__tempreading = 0;
-          (__nesc_temp46 = NodeC__localTemp.count.nxdata, __nesc_hton_uint8(__nesc_temp46, (__nesc_temp47 = __nesc_ntoh_uint8(__nesc_temp46)) + 1), __nesc_temp47);
+          (__nesc_temp47 = NodeC__localTemp.count.nxdata, __nesc_hton_uint8(__nesc_temp47, (__nesc_temp48 = __nesc_ntoh_uint8(__nesc_temp47)) + 1), __nesc_temp48);
         }
     }
   if (NodeC__PhotoRead__read() != SUCCESS) {
     NodeC__report_problem();
     }
-#line 101
+#line 107
   if (NodeC__TempRead__read() != SUCCESS) {
     NodeC__report_problem();
     }
@@ -13595,9 +13590,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 }
 
 # 83 "/home/kanavoy/tinyos-main/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x7f41e5bf8778){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x7f2d48a0a778){
 #line 83
-  switch (arg_0x7f41e5bf8778) {
+  switch (arg_0x7f2d48a0a778) {
 #line 83
     case 1U:
 #line 83
@@ -13619,7 +13614,7 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 #line 83
     default:
 #line 83
-      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x7f41e5bf8778);
+      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x7f2d48a0a778);
 #line 83
       break;
 #line 83
@@ -13708,13 +13703,13 @@ static inline uint8_t CC2420ActiveMessageP__AMSend__maxPayloadLength(am_id_t id)
 }
 
 # 123 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
-inline static uint8_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__maxPayloadLength(am_id_t arg_0x7f41e56e2c70){
+inline static uint8_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__maxPayloadLength(am_id_t arg_0x7f2d484f3c70){
 #line 123
   unsigned char __nesc_result;
 #line 123
 
 #line 123
-  __nesc_result = CC2420ActiveMessageP__AMSend__maxPayloadLength(arg_0x7f41e56e2c70);
+  __nesc_result = CC2420ActiveMessageP__AMSend__maxPayloadLength(arg_0x7f2d484f3c70);
 #line 123
 
 #line 123
@@ -13810,13 +13805,13 @@ static inline void *CC2420ActiveMessageP__AMSend__getPayload(am_id_t id, message
 }
 
 # 135 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
-inline static void * /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__getPayload(am_id_t arg_0x7f41e56e2c70, message_t * msg, uint8_t len){
+inline static void * /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__getPayload(am_id_t arg_0x7f2d484f3c70, message_t * msg, uint8_t len){
 #line 135
   void *__nesc_result;
 #line 135
 
 #line 135
-  __nesc_result = CC2420ActiveMessageP__AMSend__getPayload(arg_0x7f41e56e2c70, msg, len);
+  __nesc_result = CC2420ActiveMessageP__AMSend__getPayload(arg_0x7f2d484f3c70, msg, len);
 #line 135
 
 #line 135
@@ -14226,13 +14221,13 @@ static inline message_t *CC2420ActiveMessageP__Snoop__default__receive(am_id_t i
 }
 
 # 78 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * CC2420ActiveMessageP__Snoop__receive(am_id_t arg_0x7f41e5a49480, message_t * msg, void * payload, uint8_t len){
+inline static message_t * CC2420ActiveMessageP__Snoop__receive(am_id_t arg_0x7f2d4885a480, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = CC2420ActiveMessageP__Snoop__default__receive(arg_0x7f41e5a49480, msg, payload, len);
+    __nesc_result = CC2420ActiveMessageP__Snoop__default__receive(arg_0x7f2d4885a480, msg, payload, len);
 #line 78
 
 #line 78
@@ -14254,16 +14249,23 @@ static __inline  uint16_t __nesc_ntoh_uint16(const void * source)
 static inline message_t *NodeC__Receive__receive(message_t *msg, void *payload, uint8_t len)
 #line 78
 {
-  unsigned char __nesc_temp43;
+  unsigned char __nesc_temp44;
+  unsigned char *__nesc_temp43;
   unsigned char *__nesc_temp42;
 #line 79
   readings_t *load = (readings_t *)payload;
 
 #line 80
-  if (__nesc_ntoh_uint16(load->id.nxdata) == TOS_NODE_ID || (__nesc_temp42 = load->ttl.nxdata, __nesc_hton_uint8(__nesc_temp42, (__nesc_temp43 = __nesc_ntoh_uint8(__nesc_temp42)) - 1), __nesc_temp43) == 0) {
+  if (__nesc_ntoh_uint8(load->type.nxdata) == CONTROL) {
+      if (__nesc_ntoh_uint16(load->readings[0].nxdata) == TOS_NODE_ID) {
+          (__nesc_temp42 = NodeC__localPhoto.ttl.nxdata, __nesc_hton_uint8(__nesc_temp42, __nesc_ntoh_uint8(__nesc_temp42) - __nesc_ntoh_uint16(load->readings[1].nxdata)));
+          return msg;
+        }
+    }
+  if (__nesc_ntoh_uint16(load->id.nxdata) == TOS_NODE_ID || (__nesc_temp43 = load->ttl.nxdata, __nesc_hton_uint8(__nesc_temp43, (__nesc_temp44 = __nesc_ntoh_uint8(__nesc_temp43)) - 1), __nesc_temp44) == 0) {
     return msg;
     }
-#line 82
+#line 88
   NodeC__send(load);
   return msg;
 }
@@ -14276,13 +14278,13 @@ static inline message_t *CC2420ActiveMessageP__Receive__default__receive(am_id_t
 }
 
 # 78 "/home/kanavoy/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * CC2420ActiveMessageP__Receive__receive(am_id_t arg_0x7f41e5a4a908, message_t * msg, void * payload, uint8_t len){
+inline static message_t * CC2420ActiveMessageP__Receive__receive(am_id_t arg_0x7f2d4885b908, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0x7f41e5a4a908) {
+  switch (arg_0x7f2d4885b908) {
 #line 78
     case 138:
 #line 78
@@ -14292,7 +14294,7 @@ inline static message_t * CC2420ActiveMessageP__Receive__receive(am_id_t arg_0x7
 #line 78
     default:
 #line 78
-      __nesc_result = CC2420ActiveMessageP__Receive__default__receive(arg_0x7f41e5a4a908, msg, payload, len);
+      __nesc_result = CC2420ActiveMessageP__Receive__default__receive(arg_0x7f2d4885b908, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -14876,9 +14878,9 @@ static inline void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConf
 }
 
 # 65 "/home/kanavoy/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x7f41e5fd26e0){
+inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x7f2d48de36e0){
 #line 65
-    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x7f41e5fd26e0);
+    /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x7f2d48de36e0);
 #line 65
 }
 #line 65
@@ -14997,13 +14999,13 @@ static inline error_t /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource_
 }
 
 # 120 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t Atm128SpiP__ResourceArbiter__release(uint8_t arg_0x7f41e60a36e0){
+inline static error_t Atm128SpiP__ResourceArbiter__release(uint8_t arg_0x7f2d48eb46e0){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__release(arg_0x7f41e60a36e0);
+  __nesc_result = /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__release(arg_0x7f2d48eb46e0);
 #line 120
 
 #line 120
@@ -15187,9 +15189,9 @@ static inline void Atm128SpiP__Resource__default__granted(uint8_t id)
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void Atm128SpiP__Resource__granted(uint8_t arg_0x7f41e60c0020){
+inline static void Atm128SpiP__Resource__granted(uint8_t arg_0x7f2d48ed1020){
 #line 102
-  switch (arg_0x7f41e60c0020) {
+  switch (arg_0x7f2d48ed1020) {
 #line 102
     case 0U:
 #line 102
@@ -15199,7 +15201,7 @@ inline static void Atm128SpiP__Resource__granted(uint8_t arg_0x7f41e60c0020){
 #line 102
     default:
 #line 102
-      Atm128SpiP__Resource__default__granted(arg_0x7f41e60c0020);
+      Atm128SpiP__Resource__default__granted(arg_0x7f2d48ed1020);
 #line 102
       break;
 #line 102
@@ -15215,9 +15217,9 @@ static inline void Atm128SpiP__ResourceArbiter__granted(uint8_t id)
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__granted(uint8_t arg_0x7f41e5fd4020){
+inline static void /*Atm128SpiC.Arbiter.Arbiter*/SimpleArbiterP__0__Resource__granted(uint8_t arg_0x7f2d48de6020){
 #line 102
-  Atm128SpiP__ResourceArbiter__granted(arg_0x7f41e5fd4020);
+  Atm128SpiP__ResourceArbiter__granted(arg_0x7f2d48de6020);
 #line 102
 }
 #line 102
@@ -15769,9 +15771,9 @@ static inline void CC2420SpiP__Fifo__default__readDone(uint8_t addr, uint8_t *rx
 }
 
 # 71 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
-inline static void CC2420SpiP__Fifo__readDone(uint8_t arg_0x7f41e615f020, uint8_t * data, uint8_t length, error_t error){
+inline static void CC2420SpiP__Fifo__readDone(uint8_t arg_0x7f2d48f70020, uint8_t * data, uint8_t length, error_t error){
 #line 71
-  switch (arg_0x7f41e615f020) {
+  switch (arg_0x7f2d48f70020) {
 #line 71
     case CC2420_TXFIFO:
 #line 71
@@ -15787,7 +15789,7 @@ inline static void CC2420SpiP__Fifo__readDone(uint8_t arg_0x7f41e615f020, uint8_
 #line 71
     default:
 #line 71
-      CC2420SpiP__Fifo__default__readDone(arg_0x7f41e615f020, data, length, error);
+      CC2420SpiP__Fifo__default__readDone(arg_0x7f2d48f70020, data, length, error);
 #line 71
       break;
 #line 71
@@ -15874,9 +15876,9 @@ message_t *msg)
 }
 
 # 81 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
-inline static void CC2420ActiveMessageP__RadioBackoff__requestInitialBackoff(am_id_t arg_0x7f41e5a45d60, message_t * msg){
+inline static void CC2420ActiveMessageP__RadioBackoff__requestInitialBackoff(am_id_t arg_0x7f2d48857d60, message_t * msg){
 #line 81
-    CC2420ActiveMessageP__RadioBackoff__default__requestInitialBackoff(arg_0x7f41e5a45d60, msg);
+    CC2420ActiveMessageP__RadioBackoff__default__requestInitialBackoff(arg_0x7f2d48857d60, msg);
 #line 81
 }
 #line 81
@@ -16089,9 +16091,9 @@ static inline void CC2420SpiP__Fifo__default__writeDone(uint8_t addr, uint8_t *t
 }
 
 # 91 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/CC2420Fifo.nc"
-inline static void CC2420SpiP__Fifo__writeDone(uint8_t arg_0x7f41e615f020, uint8_t * data, uint8_t length, error_t error){
+inline static void CC2420SpiP__Fifo__writeDone(uint8_t arg_0x7f2d48f70020, uint8_t * data, uint8_t length, error_t error){
 #line 91
-  switch (arg_0x7f41e615f020) {
+  switch (arg_0x7f2d48f70020) {
 #line 91
     case CC2420_TXFIFO:
 #line 91
@@ -16107,7 +16109,7 @@ inline static void CC2420SpiP__Fifo__writeDone(uint8_t arg_0x7f41e615f020, uint8
 #line 91
     default:
 #line 91
-      CC2420SpiP__Fifo__default__writeDone(arg_0x7f41e615f020, data, length, error);
+      CC2420SpiP__Fifo__default__writeDone(arg_0x7f2d48f70020, data, length, error);
 #line 91
       break;
 #line 91
@@ -16166,9 +16168,9 @@ message_t *msg)
 }
 
 # 88 "/home/kanavoy/tinyos-main/tos/chips/cc2420/interfaces/RadioBackoff.nc"
-inline static void CC2420ActiveMessageP__RadioBackoff__requestCongestionBackoff(am_id_t arg_0x7f41e5a45d60, message_t * msg){
+inline static void CC2420ActiveMessageP__RadioBackoff__requestCongestionBackoff(am_id_t arg_0x7f2d48857d60, message_t * msg){
 #line 88
-    CC2420ActiveMessageP__RadioBackoff__default__requestCongestionBackoff(arg_0x7f41e5a45d60, msg);
+    CC2420ActiveMessageP__RadioBackoff__default__requestCongestionBackoff(arg_0x7f2d48857d60, msg);
 #line 88
 }
 #line 88
@@ -16924,9 +16926,9 @@ static inline void CC2420SpiP__Resource__default__granted(uint8_t id)
 }
 
 # 102 "/home/kanavoy/tinyos-main/tos/interfaces/Resource.nc"
-inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x7f41e6162d08){
+inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x7f2d48f73d08){
 #line 102
-  switch (arg_0x7f41e6162d08) {
+  switch (arg_0x7f2d48f73d08) {
 #line 102
     case /*CC2420ControlC.Spi*/CC2420SpiC__0__CLIENT_ID:
 #line 102
@@ -16960,7 +16962,7 @@ inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x7f41e6162d08){
 #line 102
     default:
 #line 102
-      CC2420SpiP__Resource__default__granted(arg_0x7f41e6162d08);
+      CC2420SpiP__Resource__default__granted(arg_0x7f2d48f73d08);
 #line 102
       break;
 #line 102
@@ -17244,9 +17246,9 @@ inline static void CC2420TinyosNetworkP__BareSend__sendDone(message_t * msg, err
 }
 #line 100
 # 110 "/home/kanavoy/tinyos-main/tos/interfaces/AMSend.nc"
-inline static void CC2420ActiveMessageP__AMSend__sendDone(am_id_t arg_0x7f41e5a4b7d8, message_t * msg, error_t error){
+inline static void CC2420ActiveMessageP__AMSend__sendDone(am_id_t arg_0x7f2d4885c7d8, message_t * msg, error_t error){
 #line 110
-  /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(arg_0x7f41e5a4b7d8, msg, error);
+  /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(arg_0x7f2d4885c7d8, msg, error);
 #line 110
 }
 #line 110
@@ -19156,8 +19158,8 @@ static __inline uint32_t CC2420TransmitP__getTime32(uint16_t captured_time)
 static inline void CC2420TransmitP__CaptureSFD__captured(uint16_t time)
 #line 280
 {
+  unsigned char *__nesc_temp52;
   unsigned char *__nesc_temp51;
-  unsigned char *__nesc_temp50;
 #line 281
   uint32_t time32;
   uint8_t sfd_state = 0;
@@ -19181,12 +19183,12 @@ static inline void CC2420TransmitP__CaptureSFD__captured(uint16_t time)
               uint8_t absOffset = sizeof(message_header_t ) - sizeof(cc2420_header_t ) + CC2420TransmitP__PacketTimeSyncOffset__get(CC2420TransmitP__m_msg);
               timesync_radio_t *timesync = (timesync_radio_t *)((nx_uint8_t *)CC2420TransmitP__m_msg + absOffset);
 
-              (__nesc_temp50 = (*timesync).nxdata, __nesc_hton_uint32(__nesc_temp50, __nesc_ntoh_uint32(__nesc_temp50) - time32));
+              (__nesc_temp51 = (*timesync).nxdata, __nesc_hton_uint32(__nesc_temp51, __nesc_ntoh_uint32(__nesc_temp51) - time32));
               CC2420TransmitP__CSN__clr();
               CC2420TransmitP__TXFIFO_RAM__write(absOffset, (uint8_t *)timesync, sizeof(timesync_radio_t ));
               CC2420TransmitP__CSN__set();
 
-              (__nesc_temp51 = (*timesync).nxdata, __nesc_hton_uint32(__nesc_temp51, __nesc_ntoh_uint32(__nesc_temp51) + time32));
+              (__nesc_temp52 = (*timesync).nxdata, __nesc_hton_uint32(__nesc_temp52, __nesc_ntoh_uint32(__nesc_temp52) + time32));
             }
 
           if (__nesc_ntoh_leuint16(CC2420TransmitP__CC2420PacketBody__getHeader(CC2420TransmitP__m_msg)->fcf.nxdata) & (1 << IEEE154_FCF_ACK_REQ)) {
@@ -19908,9 +19910,9 @@ static inline void AdcP__ReadNow__default__readDone(uint8_t c, error_t e, uint16
 }
 
 # 66 "/home/kanavoy/tinyos-main/tos/interfaces/ReadNow.nc"
-inline static void AdcP__ReadNow__readDone(uint8_t arg_0x7f41e57f0280, error_t result, AdcP__ReadNow__val_t val){
+inline static void AdcP__ReadNow__readDone(uint8_t arg_0x7f2d48601280, error_t result, AdcP__ReadNow__val_t val){
 #line 66
-  switch (arg_0x7f41e57f0280) {
+  switch (arg_0x7f2d48601280) {
 #line 66
     case /*PhotoImplP.SharedAnalogDeviceC.Adc*/AdcReadNowClientC__0__ID:
 #line 66
@@ -19926,7 +19928,7 @@ inline static void AdcP__ReadNow__readDone(uint8_t arg_0x7f41e57f0280, error_t r
 #line 66
     default:
 #line 66
-      AdcP__ReadNow__default__readDone(arg_0x7f41e57f0280, result, val);
+      AdcP__ReadNow__default__readDone(arg_0x7f2d48601280, result, val);
 #line 66
       break;
 #line 66
@@ -20163,9 +20165,9 @@ static void SchedulerBasicP__TaskBasic__default__runTask(uint8_t id)
 }
 
 # 75 "/home/kanavoy/tinyos-main/tos/interfaces/TaskBasic.nc"
-static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x7f41e6905960){
+static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x7f2d49719960){
 #line 75
-  switch (arg_0x7f41e6905960) {
+  switch (arg_0x7f2d49719960) {
 #line 75
     case CC2420CsmaP__startDone_task:
 #line 75
@@ -20331,7 +20333,7 @@ static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x7f41e6905960){
 #line 75
     default:
 #line 75
-      SchedulerBasicP__TaskBasic__default__runTask(arg_0x7f41e6905960);
+      SchedulerBasicP__TaskBasic__default__runTask(arg_0x7f2d49719960);
 #line 75
       break;
 #line 75
@@ -20376,7 +20378,7 @@ message_t *msg,
 uint8_t len)
 #line 89
 {
-  unsigned char *__nesc_temp54;
+  unsigned char *__nesc_temp55;
 #line 90
   cc2420_header_t *header = CC2420ActiveMessageP__CC2420PacketBody__getHeader(msg);
 
@@ -20388,7 +20390,7 @@ uint8_t len)
   __nesc_hton_leuint16(header->dest.nxdata, addr);
   __nesc_hton_leuint16(header->destpan.nxdata, CC2420ActiveMessageP__CC2420Config__getPanAddr());
   __nesc_hton_leuint16(header->src.nxdata, CC2420ActiveMessageP__AMPacket__address());
-  (__nesc_temp54 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp54, __nesc_ntoh_leuint16(__nesc_temp54) | (((1 << IEEE154_FCF_INTRAPAN) | (
+  (__nesc_temp55 = header->fcf.nxdata, __nesc_hton_leuint16(__nesc_temp55, __nesc_ntoh_leuint16(__nesc_temp55) | (((1 << IEEE154_FCF_INTRAPAN) | (
   IEEE154_ADDR_SHORT << IEEE154_FCF_DEST_ADDR_MODE)) | (
   IEEE154_ADDR_SHORT << IEEE154_FCF_SRC_ADDR_MODE))));
   __nesc_hton_leuint8(header->length.nxdata, len + CC2420_SIZE);
@@ -21200,7 +21202,7 @@ static bool NodeC__send(readings_t *payload)
   uint8_t tries;
 
 #line 62
-  tries = 5;
+  tries = 3;
   if (sizeof  (*payload) <= NodeC__AMSend__maxPayloadLength()) {
       memcpy(NodeC__AMSend__getPayload(&NodeC__sendBuf, sizeof  (*payload)), payload, sizeof  (*payload));
       while (tries-- > 0) {

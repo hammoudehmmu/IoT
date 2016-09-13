@@ -59,7 +59,7 @@ implementation
 
     bool send(readings_t* payload) {
         uint8_t tries;
-        tries = 5;
+        tries = 3;
         if (sizeof *payload <= call AMSend.maxPayloadLength()) {
             memcpy(call AMSend.getPayload(&sendBuf, sizeof(*payload)), payload, sizeof *payload);
             while (tries-- > 0) {
@@ -77,6 +77,12 @@ implementation
 
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
         readings_t* load = (readings_t*) payload;
+        if (load->type == CONTROL) {
+            if (load->readings[0] == TOS_NODE_ID) {
+                localPhoto.ttl -= load->readings[1];
+                return msg;
+            }
+        }
         if (load->id == TOS_NODE_ID || load->ttl-- == 0)
             return msg;
         send(load);
