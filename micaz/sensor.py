@@ -4,9 +4,10 @@ from pygame import Surface
 from pygame.image import load
 
 class Sensor(Surface):
-    def __init__(self, msg):
+    def __init__(self, msg, pos):
         count, parts = msg.count, msg.readings
         self.type = msg.type
+        self.id = msg.id
         self.rerollColour()
         self.values = list([0 for n in range(400)])
         self.average = 0
@@ -14,7 +15,7 @@ class Sensor(Surface):
         self.last = -1
         self.anomaly = False
         self.idle = False
-        self.position = (-100, -100)
+        self.position = pos
         self.report("Activated")
         self.append(msg)
 
@@ -48,7 +49,7 @@ class Sensor(Surface):
         if count == self.last or (count < self.last and count != 0):
             return
         newTimestamp = time()
-        if (newTimestamp - self.timestamp) < 0.9:
+        if (newTimestamp - self.timestamp) < 0.8:
             self.report("Collision")
         else:
             self.values = self.values[len(parts):] + parts

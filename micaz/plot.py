@@ -1,6 +1,5 @@
 from matplotlib import use as mpluse
 mpluse("Agg") 
-from sys import exit
 from matplotlib.backends import backend_agg as agg 
 from pylab import figure
 from matplotlib.mlab import griddata
@@ -12,14 +11,20 @@ baseLocations = {
     "y" : [-5, 25, -5, 25],
     "z" : [0, 0, 0, 0]
 }
+types = {
+    1 : "Light",
+    2 : "Heat",
+}
 
-def makeGridData(sensors):
+def makeGridData(sensors, focus="Heat"):
     xl, yl, zl = [], [], []
     for key, sensor in sensors.iteritems():
         locx, locy = sensor.position
         if locx < 0 or locy < 0:
             continue
-        locx = (locx-600)/25.0
+        if types[sensor.type] != focus:
+            continue
+        locx = locx/25.0
         locy = locy/25.0
         xl.append(locx)
         yl.append(locy)

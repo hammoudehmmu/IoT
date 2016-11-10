@@ -5,11 +5,12 @@ from sensor import Sensor
 
 
 class PacketHandler(Thread):
-    def __init__(self, sensors, am):
+    def __init__(self, sensors, am, defaultLocs):
         super(PacketHandler, self).__init__()
         self.am = am
         self.sensors = sensors
         self.beRunning = True
+        self.defaultLocs = defaultLocs
 
     def run(self):
         types = {
@@ -26,5 +27,5 @@ class PacketHandler(Thread):
                 try:
                     self.sensors[sensor].append(msg)
                 except KeyError:
-                    self.sensors[sensor] = Sensor(msg)
-
+                    pos = self.defaultLocs.get(msg.id, (-100, -100))
+                    self.sensors[sensor] = Sensor(msg, pos)

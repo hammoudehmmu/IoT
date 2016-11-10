@@ -4,24 +4,44 @@ from sys import exit
 from packethandler import PacketHandler
 from plot import getMapData
 from time import time
+from argparse import ArgumentParser
 
-def loadMapImage():
-    im = pygame.image.load("background.png")
+parser = ArgumentParser(description="Track micaz mote activations")
+parser.add_argument("-d", action='store_true',
+                    help="Dry run - don't actually connect to motes")
+parser.add_argument("-m", action='store_true',
+                    help="Draw the heat map for motes")
+args = parser.parse_args()
+
+def loadMapImage(fname):
+    im = pygame.image.load(fname)
     im.convert()
     return im
 
 pygame.init()
 pygame.display.set_caption("MICAz Visualiser")
+screen = pygame.display.set_mode((1000, 500))
 clock = pygame.time.Clock()
 sensors = {}
 snapshot = sensors.copy()
 events = []
 arial = pygame.font.SysFont("arial", 12)
-source = tos.getSource("serial@/dev/ttyUSB1:57600")
-handler = PacketHandler(sensors, tos.AM(source))
-handler.start()
-screen = pygame.display.set_mode((1000, 500))
-mapImage = loadMapImage()
+defaultLocs = {}
+with open("location.cfg") as f:
+    mapImage = loadMapImage(f.readline()[:-1])
+    for line in f:
+        line = line.split(":")
+        sensorId = int(line[0].strip())
+        locs = line[1].split(",")
+        sensorPos = (int(locs[0].strip()), int(locs[1].strip()))
+        defaultLocs[sensorId] = sensorPos
+source = None
+handler = None
+if not args.d:
+    source = tos.getSource("serial@/dev/ttyUSB1:57600")
+    handler = PacketHandler(sensors, tos.AM(source), defaultLocs)
+    handler.start()
+
 screen.fill((255, 255, 255))
 
 def drawText(surface, text, location):
@@ -38,14 +58,16 @@ def drawMap():
     screen.blit(mapImage, mapRect)
     drawCircle = pygame.draw.circle
     for key, sensor in snapshot.iteritems():
-        pos = sensor.position
+        pos = (sensor.position[0]-mapRect.x, sensor.position[1])
         if sensor.idle or sensor.anomaly:
             drawCircle(screen, (255, 0, 0), pos, 8)
         drawCircle(screen, sensor.colour, pos, 5)
-    rawData = getMapData(sensors, mapRect[2:])
-    mapData = pygame.image.fromstring(rawData, mapRect[2:], "RGB")
-    mapData.set_alpha(100)    
-    screen.blit(mapData, mapRect)
+        drawText(screen, sensor.id, pos)
+    if args.m:
+        rawData = getMapData(sensors, mapRect[2:])
+        mapData = pygame.image.fromstring(rawData, mapRect[2:], "RGB")
+        mapData.set_alpha(100)    
+        screen.blit(mapData, mapRect)
 
 def drawGraph(selected):
     screen.fill((255, 255, 255), graphRect)
@@ -72,7 +94,8 @@ while True:
     snapshot = sensors.copy()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            handler.beRunning = False
+            if handler:
+                handler.beRunning = False
             exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 3:  # RMB
@@ -83,8 +106,9 @@ while True:
                     pass
             elif event.button == 1:  # LMB
                 if chosen:
-                    if event.pos[0] > 600:
-                        sensors[chosen].position = event.pos
+                    if event.pos[0] > mapRect.x:
+                        newLoc = (event.pos[0]-mapRect.x, event.pos[1])
+                        sensors[chosen].position = newLoc
                     else:
                         sensors[chosen].position = (-100, -100)
                 chosen = selected
@@ -106,7 +130,7 @@ while True:
     newSelection = None
     for key, sensor in snapshot.iteritems():
         col = sensor.colour
-        if (currentTime - sensor.timestamp > 3) and not sensor.idle:
+        if (currentTime - sensor.timestamp > 5) and not sensor.idle:
             sensor.idle = True
             sensor.report("Deactivated", True)
 
