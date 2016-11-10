@@ -122,7 +122,8 @@ while True:
         eventY += 15
 
     currentTime = time()
-    sideY = 50
+    sideX = 0
+    sideY = 0
     mousePos = pygame.mouse.get_pos()
     drawline = pygame.draw.line  # local faster access
     drawCircle = pygame.draw.circle
@@ -135,13 +136,14 @@ while True:
             sensor.report("Deactivated", True)
 
         sensorText = "Sensor {}: {}".format(key, sensor.average)
-        drawText(screen, sensorText, (420, sideY))
+        drawText(screen, sensorText, (sideX+420, sideY+20))
         if sensor.idle or sensor.anomaly:
-            drawCircle(screen, (255, 0, 0), (410, sideY+6), 8)
-        circleLoc = drawCircle(screen, col, (410, sideY+6), 4)
+            drawCircle(screen, (255, 0, 0), (sideX+410, sideY+26), 8)
+        circleLoc = drawCircle(screen, col, (sideX+410, sideY+26), 4)
         if circleLoc.collidepoint(mousePos):
             newSelection = key
-        sideY += 20
+        sideX = ((sideY+20)//180)*100
+        sideY = (sideY+20)%180
 
         reason = (key, sensor.anomaly)
         if reason[1] and reason not in events:
