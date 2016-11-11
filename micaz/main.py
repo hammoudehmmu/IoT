@@ -53,16 +53,20 @@ graphRect = pygame.Rect(0, 0, 400, 500)
 sidebarRect = pygame.Rect(400, 0, 200, 500)
 mapRect = pygame.Rect(600, 0, 400, 500)
 
-def drawMap():
+def drawMap(selected):
     screen.fill((255, 255, 255), mapRect)
     screen.blit(mapImage, mapRect)
     drawCircle = pygame.draw.circle
     for key, sensor in snapshot.iteritems():
-        pos = (sensor.position[0]-mapRect.x, sensor.position[1])
+        if sensor.type != (2 if args.m else 1):
+            continue
+        pos = (sensor.position[0]+mapRect.x, sensor.position[1])
+        if selected == key:
+            drawCircle(screen, (0, 0, 255), pos, 10)            
         if sensor.idle or sensor.anomaly:
             drawCircle(screen, (255, 0, 0), pos, 8)
         drawCircle(screen, sensor.colour, pos, 5)
-        drawText(screen, sensor.id, pos)
+        drawText(screen, sensor.id, (pos[0]-4, pos[1]-7))
     if args.m:
         rawData = getMapData(sensors, mapRect[2:])
         mapData = pygame.image.fromstring(rawData, mapRect[2:], "RGB")
@@ -75,7 +79,7 @@ def drawGraph(selected):
         if (selected is None or key == selected):
             col = sensor.colour
         else:
-            col = (200, 200, 200)
+            col = (200, 200, 200, 128)
         last = 400
         if sensor.type == 2:
             base = 700
@@ -155,7 +159,7 @@ while True:
         redrawGraph = True
     if redrawGraph:
         drawGraph(selected)
-        drawMap()
+        drawMap(selected)
         redrawGraph = False
     pygame.display.flip()
     step = (step + 1) % 120
