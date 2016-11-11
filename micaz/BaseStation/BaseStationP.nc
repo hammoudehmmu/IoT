@@ -53,8 +53,14 @@
  * ID compiled into the BaseStation, and messages moving from radio to
  * serial will be filtered by that same group id.
  */
+ 
+/*
+ * @author Adam Coates
+ * Alterations to suit sensor network application.
+ */
 
 #include "AM.h"
+#include "Node.h"
 #include "Serial.h"
 
 module BaseStationP @safe() {
@@ -160,6 +166,15 @@ implementation
 
   message_t* receive(message_t *msg, void *payload, uint8_t len) {
     message_t *ret = msg;
+    readings_t* prev;
+    readings_t* load = (readings_t*) payload;
+    uint8_t i = UART_QUEUE_LEN;
+    while (i--) {
+        prev = (readings_t*) uartQueue[i]->data;
+        if (prev->id == load->id && prev->count == load->count)
+            if (prev->ttl >= load->ttl && prev->type == load->type)
+                return ret;
+    }
 
     atomic {
       if (!uartFull)

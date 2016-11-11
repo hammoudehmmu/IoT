@@ -61,7 +61,7 @@ def drawMap(selected):
         if sensor.type != (2 if args.m else 1):
             continue
         pos = (sensor.position[0]+mapRect.x, sensor.position[1])
-        if selected == key:
+        if selected and selected.split(" - ")[0] == key.split(" - ")[0]:
             drawCircle(screen, (0, 0, 255), pos, 10)            
         if sensor.idle or sensor.anomaly:
             drawCircle(screen, (255, 0, 0), pos, 8)
@@ -76,7 +76,7 @@ def drawMap(selected):
 def drawGraph(selected):
     screen.fill((255, 255, 255), graphRect)
     for key, sensor in snapshot.iteritems():
-        if (selected is None or key == selected):
+        if (selected is None or key.split(" - ")[0] == selected.split(" - ")[0]):
             col = sensor.colour
         else:
             col = (200, 200, 200, 128)
@@ -119,7 +119,7 @@ while True:
     if step != 0:
         screen.fill((255, 255, 255), sidebarRect)
 
-    eventY = 200
+    eventY = 330
     for e in events:
         text = "{}: {}, {}".format(e[0], e[1][0], e[1][1])
         drawText(screen, text, (405, eventY))
@@ -138,21 +138,27 @@ while True:
         if (currentTime - sensor.timestamp > 5) and not sensor.idle:
             sensor.idle = True
             sensor.report("Deactivated", True)
-
-        sensorText = "Sensor {}: {}".format(key, sensor.average)
-        drawText(screen, sensorText, (sideX+420, sideY+20))
-        if sensor.idle or sensor.anomaly:
-            drawCircle(screen, (255, 0, 0), (sideX+410, sideY+26), 8)
-        circleLoc = drawCircle(screen, col, (sideX+410, sideY+26), 4)
-        if circleLoc.collidepoint(mousePos):
-            newSelection = key
-        sideX = ((sideY+20)//180)*100
-        sideY = (sideY+20)%180
+        if sensor.type == 1:
+            pair = snapshot.get(key.split(" - ")[0] + " - Heat")
+            if not pair:
+                continue
+            pair.colour = col
+            readings = (sensor.id, sensor.average, pair.average)
+            text = "{} - l: {}, h: {}".format(*readings)
+            drawText(screen, text, (sideX+420, sideY+20))
+            if sensor.idle or sensor.anomaly:
+                drawCircle(screen, (255, 0, 0), (sideX+410, sideY+26), 8)
+            circleLoc = drawCircle(screen, col, (sideX+410, sideY+26), 4)
+            if circleLoc.collidepoint(mousePos):
+                newSelection = key
+            sideX += ((sideY+20)//280)*100
+            sideY = (sideY+20)%280
 
         reason = (key, sensor.anomaly)
         if reason[1] and reason not in events:
             events.append(reason)
-        events = events[-12:]
+        events = sorted(events, key=lambda x: x[1][1])
+        events = events[-10:]
 
     if selected != newSelection:
         selected = newSelection

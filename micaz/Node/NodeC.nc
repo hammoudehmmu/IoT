@@ -80,6 +80,7 @@ implementation
         if (load->type == CONTROL) {
             if (load->readings[0] == TOS_NODE_ID) {
                 localPhoto.ttl -= load->readings[1];
+                localTemp.ttl -= load->readings[1];
                 return msg;
             }
         }
